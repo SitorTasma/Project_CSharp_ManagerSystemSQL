@@ -30,7 +30,6 @@
         {
             this.txt_maphong = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_them = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_tenphong = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +41,8 @@
             this.btn_dbnext = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_prev = new System.Windows.Forms.Button();
+            this.btn_luudl = new System.Windows.Forms.Button();
+            this.btn_them = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_maphong
@@ -60,16 +61,6 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã Phòng";
-            // 
-            // btn_them
-            // 
-            this.btn_them.Location = new System.Drawing.Point(32, 163);
-            this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(75, 23);
-            this.btn_them.TabIndex = 2;
-            this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
-            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // label2
             // 
@@ -164,11 +155,32 @@
             this.btn_prev.Text = "<";
             this.btn_prev.UseVisualStyleBackColor = true;
             // 
+            // btn_luudl
+            // 
+            this.btn_luudl.Location = new System.Drawing.Point(32, 163);
+            this.btn_luudl.Name = "btn_luudl";
+            this.btn_luudl.Size = new System.Drawing.Size(75, 23);
+            this.btn_luudl.TabIndex = 14;
+            this.btn_luudl.Text = "Lưu";
+            this.btn_luudl.UseVisualStyleBackColor = true;
+            // 
+            // btn_them
+            // 
+            this.btn_them.Location = new System.Drawing.Point(32, 163);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(75, 23);
+            this.btn_them.TabIndex = 15;
+            this.btn_them.Text = "Thêm";
+            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 288);
+            this.Controls.Add(this.btn_them);
+            this.Controls.Add(this.btn_luudl);
             this.Controls.Add(this.btn_prev);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.btn_dbnext);
@@ -180,7 +192,6 @@
             this.Controls.Add(this.txt_sdt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_tenphong);
-            this.Controls.Add(this.btn_them);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_maphong);
             this.Name = "Form1";
@@ -195,7 +206,6 @@
 
         private System.Windows.Forms.TextBox txt_maphong;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_tenphong;
         private System.Windows.Forms.Label label3;
@@ -207,6 +217,8 @@
         private System.Windows.Forms.Button btn_dbnext;
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_prev;
+        private System.Windows.Forms.Button btn_luudl;
+        private System.Windows.Forms.Button btn_them;
     }
 }
 

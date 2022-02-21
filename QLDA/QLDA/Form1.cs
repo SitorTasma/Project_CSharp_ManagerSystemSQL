@@ -39,14 +39,22 @@ namespace QLDA
 
         }
   
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void Form1_Load(object sender, EventArgs e)
         {
             activeDataSQL();
         }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+            this.btn_them.Visible = false;
+            this.btn_luudl.Focus();
+            this.txt_tenphong.Text = "";
+            this.txt_maphong.Text = "";
+            this.txt_sdt.Text = "";
+        }
+
+     
     }
 }
