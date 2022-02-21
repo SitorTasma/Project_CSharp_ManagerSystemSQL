@@ -12,8 +12,8 @@ namespace QLDA
 {
     public partial class Form1 : Form
     {
-        // Changed
         string kn = @"Server=C203-25;Database=qlda;Integrated Security=True";
+        CurrencyManager ct;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace QLDA
             txt_maphong.DataBindings.Add("Text", ds, "pb.MAPHONG");
             txt_tenphong.DataBindings.Add("Text", ds, "pb.TENPHONG");
             txt_sdt.DataBindings.Add("Text", ds, "pb.SODIENTHOAI");
+            ct = (CurrencyManager)this.BindingContext[ds, "pb"];
         }
 
         private void txt_maphong_TextChanged(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace QLDA
         private void Form1_Load(object sender, EventArgs e)
         {
             activeDataSQL();
+            this.txt_pos.Text = ct.Position + 1 + "/" + ct.Count;
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -53,6 +55,36 @@ namespace QLDA
             this.txt_tenphong.Text = "";
             this.txt_maphong.Text = "";
             this.txt_sdt.Text = "";
+            this.txt_maphong.Focus();
+        }
+
+        private void btn_prev_Click(object sender, EventArgs e)
+        {
+            ct.Position--;
+            this.txt_pos.Text = Convert.ToString(ct.Position + 1 + "/" + ct.Count);
+        }
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            ct.Position++;
+            this.txt_pos.Text = Convert.ToString(ct.Position + 1 + "/" + ct.Count);
+        }
+
+        private void txt_pos_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_dbprev_Click(object sender, EventArgs e)
+        {
+            ct.Position = 0;
+            this.txt_pos.Text = Convert.ToString(ct.Position + 1 + "/" + ct.Count);
+        }
+
+        private void btn_dbnext_Click(object sender, EventArgs e)
+        {
+            ct.Position = ct.Count;
+            this.txt_pos.Text = Convert.ToString(ct.Position + 1 + "/" + ct.Count);
         }
 
      

@@ -37,7 +37,7 @@
             this.btn_capnhat = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_dbprev = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_pos = new System.Windows.Forms.TextBox();
             this.btn_dbnext = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_prev = new System.Windows.Forms.Button();
@@ -120,13 +120,16 @@
             this.btn_dbprev.TabIndex = 9;
             this.btn_dbprev.Text = "|<";
             this.btn_dbprev.UseVisualStyleBackColor = true;
+            this.btn_dbprev.Click += new System.EventHandler(this.btn_dbprev_Click);
             // 
-            // textBox4
+            // txt_pos
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 227);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(111, 20);
-            this.textBox4.TabIndex = 10;
+            this.txt_pos.Location = new System.Drawing.Point(113, 227);
+            this.txt_pos.Name = "txt_pos";
+            this.txt_pos.Size = new System.Drawing.Size(111, 20);
+            this.txt_pos.TabIndex = 10;
+            this.txt_pos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_pos.TextChanged += new System.EventHandler(this.txt_pos_TextChanged);
             // 
             // btn_dbnext
             // 
@@ -136,6 +139,7 @@
             this.btn_dbnext.TabIndex = 11;
             this.btn_dbnext.Text = ">|";
             this.btn_dbnext.UseVisualStyleBackColor = true;
+            this.btn_dbnext.Click += new System.EventHandler(this.btn_dbnext_Click);
             // 
             // btn_next
             // 
@@ -145,6 +149,7 @@
             this.btn_next.TabIndex = 12;
             this.btn_next.Text = ">";
             this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
             // btn_prev
             // 
@@ -154,6 +159,7 @@
             this.btn_prev.TabIndex = 13;
             this.btn_prev.Text = "<";
             this.btn_prev.UseVisualStyleBackColor = true;
+            this.btn_prev.Click += new System.EventHandler(this.btn_prev_Click);
             // 
             // btn_luudl
             // 
@@ -184,7 +190,7 @@
             this.Controls.Add(this.btn_prev);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.btn_dbnext);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_pos);
             this.Controls.Add(this.btn_dbprev);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_capnhat);
@@ -213,7 +219,7 @@
         private System.Windows.Forms.Button btn_capnhat;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_dbprev;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_pos;
         private System.Windows.Forms.Button btn_dbnext;
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_prev;
