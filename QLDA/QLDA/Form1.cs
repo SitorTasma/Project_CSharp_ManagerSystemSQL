@@ -18,17 +18,7 @@ namespace QLDA
             InitializeComponent();
         }
 
-        private void txt_maphong_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void activeDataSQL()
         {
             SqlDataAdapter SDA = new SqlDataAdapter("SELECT * FROM PHONGBAN", kn);
             DataSet ds = new DataSet();
@@ -38,10 +28,24 @@ namespace QLDA
             txt_tenphong.DataBindings.Clear();
             txt_sdt.DataBindings.Clear();
             // add 
-            txt_maphong.DataBindings.Add("Text",ds,"pb.MAPHONG");
-            txt_tenphong.DataBindings.Add("Text",ds,"pb.TENPHONG");
-            txt_sdt.DataBindings.Add("Text",ds,"pb.SODIENTHOAI");
+            txt_maphong.DataBindings.Add("Text", ds, "pb.MAPHONG");
+            txt_tenphong.DataBindings.Add("Text", ds, "pb.TENPHONG");
+            txt_sdt.DataBindings.Add("Text", ds, "pb.SODIENTHOAI");
+        }
 
+        private void txt_maphong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+  
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            activeDataSQL();
         }
     }
 }
