@@ -47,6 +47,7 @@
             // 
             // txt_maphong
             // 
+            this.txt_maphong.Enabled = false;
             this.txt_maphong.Location = new System.Drawing.Point(108, 40);
             this.txt_maphong.Name = "txt_maphong";
             this.txt_maphong.Size = new System.Drawing.Size(195, 20);
@@ -102,6 +103,7 @@
             this.btn_capnhat.TabIndex = 7;
             this.btn_capnhat.Text = "Cập Nhật";
             this.btn_capnhat.UseVisualStyleBackColor = true;
+            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
             // 
             // btn_xoa
             // 
@@ -111,6 +113,7 @@
             this.btn_xoa.TabIndex = 8;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_dbprev
             // 
@@ -169,6 +172,7 @@
             this.btn_luudl.TabIndex = 14;
             this.btn_luudl.Text = "Lưu";
             this.btn_luudl.UseVisualStyleBackColor = true;
+            this.btn_luudl.Click += new System.EventHandler(this.btn_luudl_Click);
             // 
             // btn_them
             // 

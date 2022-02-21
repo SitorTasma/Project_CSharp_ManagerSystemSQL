@@ -12,7 +12,7 @@ namespace QLDA
 {
     public partial class Form1 : Form
     {
-        string kn = @"Server=C203-25;Database=qlda;Integrated Security=True";
+        SqlConnection kn = new SqlConnection(@"Server=C203-25;Database=qlda;Integrated Security=True");
         CurrencyManager ct;
         public Form1()
         {
@@ -33,6 +33,56 @@ namespace QLDA
             txt_tenphong.DataBindings.Add("Text", ds, "pb.TENPHONG");
             txt_sdt.DataBindings.Add("Text", ds, "pb.SODIENTHOAI");
             ct = (CurrencyManager)this.BindingContext[ds, "pb"];
+            this.txt_pos.Text = ct.Position + 1 + "/" + ct.Count;
+        }
+        private void insertDataSQL()
+        {
+            string query = String.Format("INSERT INTO PHONGBAN VALUES('{0}','{1}','{2}')", 
+                this.txt_maphong.Text, this.txt_tenphong.Text, this.txt_sdt.Text);
+            SqlCommand SQ = new SqlCommand(query, kn);
+            try
+            {
+                SQ.Connection.Open();
+                SQ.ExecuteNonQuery();
+                MessageBox.Show(String.Format("Dữ liệu {0} đã được thêm.", this.txt_tenphong.Text));
+            }
+            catch(Exception ex){
+                MessageBox.Show(ex.Message);
+            }
+            SQ.Connection.Close();
+        }
+        private void updateDataSQL()
+        {
+            string query = String.Format("UPDATE PHONGBAN SET TENPHONG=N'{0}', SODIENTHOAI='{1}' WHERE MAPHONG='{2}'",
+                this.txt_tenphong.Text, this.txt_sdt.Text, this.txt_maphong.Text);
+            SqlCommand SQ = new SqlCommand(query, kn);
+            try
+            {
+                SQ.Connection.Open();
+                SQ.ExecuteNonQuery();
+                MessageBox.Show(String.Format("Dữ liệu {0} đã được thay đổi.", this.txt_maphong.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            SQ.Connection.Close();
+        }
+        private void deleteDataSQL()
+        {
+            if (MessageBox.Show("Bạn thực sự muốn xóa mẫu tin này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                kn.Open();
+                string query = String.Format("DELETE FROM PHONGBAN WHERE MAPHONG='{0}'", this.txt_maphong.Text);
+                SqlCommand SQ = new SqlCommand(query, kn);
+                SQ.ExecuteNonQuery();
+                MessageBox.Show(String.Format("Dữ liệu {0} đã xóa.", this.txt_maphong.Text));
+                kn.Close();
+            }else{
+                MessageBox.Show("Mẫu tin chưa được xóa", "Thông báo");
+                kn.Close();
+            }
+            
         }
 
         private void txt_maphong_TextChanged(object sender, EventArgs e)
@@ -45,7 +95,6 @@ namespace QLDA
         private void Form1_Load(object sender, EventArgs e)
         {
             activeDataSQL();
-            this.txt_pos.Text = ct.Position + 1 + "/" + ct.Count;
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -55,7 +104,9 @@ namespace QLDA
             this.txt_tenphong.Text = "";
             this.txt_maphong.Text = "";
             this.txt_sdt.Text = "";
+            this.txt_maphong.Enabled = true;
             this.txt_maphong.Focus();
+           
         }
 
         private void btn_prev_Click(object sender, EventArgs e)
@@ -85,6 +136,30 @@ namespace QLDA
         {
             ct.Position = ct.Count;
             this.txt_pos.Text = Convert.ToString(ct.Position + 1 + "/" + ct.Count);
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            deleteDataSQL();
+            activeDataSQL();
+        }
+
+        private void btn_luudl_Click(object sender, EventArgs e)
+        {
+            if (this.txt_maphong.Text != "" && this.txt_tenphong.Text != "" && this.txt_sdt.Text != "")
+            {
+                insertDataSQL();
+                activeDataSQL();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập thông tin đầy đủ");
+            }
+        }
+
+        private void btn_capnhat_Click(object sender, EventArgs e)
+        {
+            updateDataSQL();
         }
 
      
