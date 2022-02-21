@@ -12,6 +12,7 @@ namespace QLDA
 {
     public partial class Form1 : Form
     {
+        // Changed
         string kn = @"Server=C203-25;Database=qlda;Integrated Security=True";
         public Form1()
         {
