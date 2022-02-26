@@ -7,3 +7,12 @@ D:\Documents\GitHub\Project_CSharp_ManagerSystemSQL\QLDA\QLDA\bin\Debug\QLDA.exe
 D:\Documents\GitHub\Project_CSharp_ManagerSystemSQL\QLDA\QLDA\bin\Debug\QLDA.pdb
 D:\Documents\GitHub\Project_CSharp_ManagerSystemSQL\QLDA\QLDA\obj\Debug\QLDA.exe
 D:\Documents\GitHub\Project_CSharp_ManagerSystemSQL\QLDA\QLDA\obj\Debug\QLDA.pdb
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\bin\Debug\QLDA.exe.config
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.exe
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.pdb
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\bin\Debug\QLDA.exe
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\bin\Debug\QLDA.pdb
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.csprojResolveAssemblyReference.cache
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.Form1.resources
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.Properties.Resources.resources
+C:\Users\C203-00\Downloads\Project_CSharp_ManagerSystemSQL-main\QLDA\QLDA\obj\Debug\QLDA.csproj.GenerateResource.Cache

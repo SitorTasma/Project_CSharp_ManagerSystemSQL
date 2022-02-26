@@ -12,8 +12,10 @@ namespace QLDA
 {
     public partial class Form1 : Form
     {
-        SqlConnection kn = new SqlConnection(@"Server=C203-25;Database=qlda;Integrated Security=True");
+       public static SqlConnection kn = new SqlConnection(@"Server=.;Database=qlda;Integrated Security=True");
+       public static SqlDataAdapter SDA = new SqlDataAdapter("SELECT * FROM PHONGBAN", kn);
         CurrencyManager ct;
+        DataSet ds = new DataSet();
         public Form1()
         {
             InitializeComponent();
@@ -21,8 +23,7 @@ namespace QLDA
 
         private void activeDataSQL()
         {
-            SqlDataAdapter SDA = new SqlDataAdapter("SELECT * FROM PHONGBAN", kn);
-            DataSet ds = new DataSet();
+           
             SDA.Fill(ds, "pb");
             // clear
             txt_maphong.DataBindings.Clear();
@@ -37,7 +38,7 @@ namespace QLDA
         }
         private void insertDataSQL()
         {
-            string query = String.Format("INSERT INTO PHONGBAN VALUES('{0}','{1}','{2}')", 
+            string query = String.Format("CHEN_PHONGBAN '{0}','{1}','{2}'", 
                 this.txt_maphong.Text, this.txt_tenphong.Text, this.txt_sdt.Text);
             SqlCommand SQ = new SqlCommand(query, kn);
             try
@@ -53,12 +54,12 @@ namespace QLDA
         }
         private void updateDataSQL()
         {
-            string query = String.Format("UPDATE PHONGBAN SET TENPHONG=N'{0}', SODIENTHOAI='{1}' WHERE MAPHONG='{2}'",
+            string query = String.Format("CAPNHAT_PHONGBAN N'{0}','{1}','{2}'",
                 this.txt_tenphong.Text, this.txt_sdt.Text, this.txt_maphong.Text);
             SqlCommand SQ = new SqlCommand(query, kn);
+            SQ.Connection.Open();
             try
-            {
-                SQ.Connection.Open();
+            { 
                 SQ.ExecuteNonQuery();
                 MessageBox.Show(String.Format("Dữ liệu {0} đã được thay đổi.", this.txt_maphong.Text));
             }
@@ -70,10 +71,11 @@ namespace QLDA
         }
         private void deleteDataSQL()
         {
-            if (MessageBox.Show("Bạn thực sự muốn xóa mẫu tin này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn thực sự muốn xóa mẫu tin này?", "Xác nhận", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 kn.Open();
-                string query = String.Format("DELETE FROM PHONGBAN WHERE MAPHONG='{0}'", this.txt_maphong.Text);
+                string query = String.Format("XOA_PHONGBAN '{0}'", this.txt_maphong.Text);
                 SqlCommand SQ = new SqlCommand(query, kn);
                 SQ.ExecuteNonQuery();
                 MessageBox.Show(String.Format("Dữ liệu {0} đã xóa.", this.txt_maphong.Text));
