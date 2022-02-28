@@ -14,6 +14,7 @@ namespace WindowsFormsApplication3
     public partial class Form2 : Form
     {
         SqlConnection sq = new SqlConnection("Server=C203-25;Database=qlda;Integrated Security=true");
+        BindingSource bs = new BindingSource();
         private void activeDataSQL(string type)
         {
             string query = "SELECT * FROM THAMGIA";
@@ -47,10 +48,11 @@ namespace WindowsFormsApplication3
                 case "bs":
                     {
                         SqlDataAdapter da = new SqlDataAdapter(query, sq);
-                        BindingSource bs = new BindingSource();
-                      
-                        bs.DataSource = da;
-                        //this.gridOutData.DataSource = dt;
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        bs.DataSource = dt;
+                        controlbar_BN.BindingSource = bs;
+                        this.gridOutData.DataSource = bs;
                         break;
                     }
             }
