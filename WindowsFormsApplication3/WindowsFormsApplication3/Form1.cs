@@ -25,7 +25,14 @@ namespace WindowsFormsApplication3
             }
             cmd.Connection.Close();
         }
-       
+        private void outGridData()
+        {
+            string query = "SELECT * FROM THAMGIA WHERE MADA='" + this.listDA.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, sq);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            this.outData_gridv.DataSource = dt;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -34,11 +41,12 @@ namespace WindowsFormsApplication3
         private void Form1_Load(object sender, EventArgs e)
         {
             buoc_cbo_mada();
+            
         }
 
         private void listDA_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            outGridData();
         }
 
         private void outData_gridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
