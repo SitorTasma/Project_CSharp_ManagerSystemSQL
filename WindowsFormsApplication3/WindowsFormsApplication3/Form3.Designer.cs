@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.outdata_dgv = new System.Windows.Forms.DataGridView();
-            this.listDAID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.searchID_txt = new System.Windows.Forms.TextBox();
             this.btn_find = new System.Windows.Forms.Button();
+            this.listDA = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.outdata_dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,14 +43,7 @@
             this.outdata_dgv.Name = "outdata_dgv";
             this.outdata_dgv.Size = new System.Drawing.Size(445, 227);
             this.outdata_dgv.TabIndex = 0;
-            // 
-            // listDAID
-            // 
-            this.listDAID.FormattingEnabled = true;
-            this.listDAID.Location = new System.Drawing.Point(79, 12);
-            this.listDAID.Name = "listDAID";
-            this.listDAID.Size = new System.Drawing.Size(121, 21);
-            this.listDAID.TabIndex = 1;
+            this.outdata_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.outdata_dgv_CellContentClick);
             // 
             // label1
             // 
@@ -67,6 +60,7 @@
             this.searchID_txt.Name = "searchID_txt";
             this.searchID_txt.Size = new System.Drawing.Size(79, 20);
             this.searchID_txt.TabIndex = 3;
+            this.searchID_txt.TextChanged += new System.EventHandler(this.searchID_txt_TextChanged);
             // 
             // btn_find
             // 
@@ -78,15 +72,24 @@
             this.btn_find.UseVisualStyleBackColor = true;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
+            // listDA
+            // 
+            this.listDA.FormattingEnabled = true;
+            this.listDA.Location = new System.Drawing.Point(73, 11);
+            this.listDA.Name = "listDA";
+            this.listDA.Size = new System.Drawing.Size(121, 21);
+            this.listDA.TabIndex = 7;
+            this.listDA.SelectedIndexChanged += new System.EventHandler(this.listDA_SelectedIndexChanged_1);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 291);
+            this.Controls.Add(this.listDA);
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.searchID_txt);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listDAID);
             this.Controls.Add(this.outdata_dgv);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -100,9 +103,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView outdata_dgv;
-        private System.Windows.Forms.ComboBox listDAID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchID_txt;
         private System.Windows.Forms.Button btn_find;
+        private System.Windows.Forms.ComboBox listDA;
     }
 }

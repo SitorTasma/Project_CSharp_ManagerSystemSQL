@@ -50,7 +50,7 @@
             this.listDA.FormattingEnabled = true;
             this.listDA.Location = new System.Drawing.Point(111, 26);
             this.listDA.Name = "listDA";
-            this.listDA.Size = new System.Drawing.Size(270, 21);
+            this.listDA.Size = new System.Drawing.Size(426, 21);
             this.listDA.TabIndex = 1;
             this.listDA.SelectedIndexChanged += new System.EventHandler(this.listDA_SelectedIndexChanged);
             // 
@@ -59,7 +59,7 @@
             this.outData_gridv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.outData_gridv.Location = new System.Drawing.Point(25, 77);
             this.outData_gridv.Name = "outData_gridv";
-            this.outData_gridv.Size = new System.Drawing.Size(356, 150);
+            this.outData_gridv.Size = new System.Drawing.Size(512, 223);
             this.outData_gridv.TabIndex = 2;
             this.outData_gridv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.outData_gridv_CellContentClick);
             // 
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 252);
+            this.ClientSize = new System.Drawing.Size(560, 322);
             this.Controls.Add(this.outData_gridv);
             this.Controls.Add(this.listDA);
             this.Controls.Add(this.label1);
