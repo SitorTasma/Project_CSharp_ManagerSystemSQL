@@ -25,7 +25,18 @@ namespace WindowsFormsApplication3
             }
             cmd.Connection.Close();
         }
+<<<<<<< HEAD
 //Phương thức buộc dữ liệu lên điều khiển DataGridView
+=======
+        private void outGridData()
+        {
+            string query = "SELECT * FROM THAMGIA WHERE MADA='" + this.listDA.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, sq);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            this.outData_gridv.DataSource = dt;
+        }
+>>>>>>> 2e3759ff640c6ae19f9c832279f399fff18d2356
         public Form1()
         {
             InitializeComponent();
@@ -40,11 +51,12 @@ namespace WindowsFormsApplication3
         private void Form1_Load(object sender, EventArgs e)
         {
             buoc_cbo_mada();
+            
         }
 
         private void listDA_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            outGridData();
         }
 
         private void outData_gridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
