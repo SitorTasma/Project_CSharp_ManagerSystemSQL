@@ -25,10 +25,16 @@ namespace WindowsFormsApplication3
             }
             cmd.Connection.Close();
         }
-       
+//Phương thức buộc dữ liệu lên điều khiển DataGridView
         public Form1()
         {
             InitializeComponent();
+            string chuoi = "Select * from thamgia where mada ='" + this.listDA.Text + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(chuoi, sq);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            this.outData_gridv.DataSource = dt;
         }
    
         private void Form1_Load(object sender, EventArgs e)
